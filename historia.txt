@@ -2,3 +2,4 @@ Esta es la segunda version de el archivo
 modifico el archivo para su validacion
 tercer modificacion
 se agregan nuevos archivos 
+el checkaout sirve paa regresar a cambios especificos 
