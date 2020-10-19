@@ -1,0 +1,95 @@
+Comandos de Git 
+
+--------------------			--------------------			--------------------
+|	Directorio	   |			|	   Staging	   |			|   Repositorio    |
+--------------------			--------------------			--------------------
+
+
+
+
+
+
+
+
+
+
+git init ------------> crea un repositorio local
+git add nombreArchivo-------------> agrega los cambios actuales de un archivo en especifico
+git add . -------------------------> agrega los archivos nuevos y todos los modificados
+git commit -m "comentario " ------------> genera el commit de los cambios almacenados en el stagin (siempre se debe colocar un comentario) 
+
+
+git config -------------> muestra los comandos para la configuracion
+git config --list ----------------> muestra las configuraciones actuales de nuestro git
+git config --global propiedad ----------------> modifca la propiedad mencionada
+
+git show -------------> muestra los cambios realizados dentro de el archivo con una version anterior
+git log nombreArchivo -------------------> muestra la historia de el archivo 
+git diff lastCOmmitVErsion versionInicialdeseada ----------> compara versiones de commit siendo la mas reciente el primer parametro y el segundo la version a comparar
+
+git reset #commit hard ---------> vuelve al estado anterior 
+git reset commit soft ------------> no elimina la version de el stagin , y aparecera en el sig commit
+
+git rm --cached elimina los archivos de staging pero no del disco duro 
+git rm --force elimina los archivos de el staging y del disco duro 
+
+git log --stat    ---------->ver cuanto cambios se agregaron por archivo 
+git checkout  version archivo a regresar------------>vuelve al estatus original de los cambios 
+
+git reset HEAD --------> limpia el staging para no enviarlos en el commit
+git commit -am "comment"  otra forma del git 
+git show -----------> muestra cambios ,q para salir
+git branch ---------------> crea un branch nuevo , el branch se crea desde el lugar donde me encuentro 
+git checkout cabeceraName --------------> cambio de rama 
+
+git remote add origin  "https"     ----------------> 
+git remote
+git remote v
+git push origin master -----------------------> intenta subir los cambios al repositorio ** dara error ya que ambas ramas son distintas y ahora la rama del repo sera master tambien 
+
+git pull origin master -------------> descarga los cambios de la rama master del repositorio 
+
+ssh-keygen -t rsa -b 4096 -C "correo" 
+
+ssh-keygen -t rsa  especifica el algoritmo que se usará 
+-b 4096  complejidad matematica del algoritmo
+-C "correo al que pertenece"
+
+ssh-add ~/ssh/ id_rsa  agrega nuestra llave 
+
+eval $(ssh-agent -s) valida que el servicio ssh esta corriendo 
+git remote -v muestra la url del repositorio
+
+git remote set-url origin la_url_ssh    cambia la url del repo , a una con cifradi ssh
+git pull trae la version final del repo (baja los ultimos cambios)
+git log --all --graph --decorate --oneline  historia de un branch 
+git show-ref --tags
+alias el_alias= "git log --all --graph --decorate --oneline " crea un alias para comandos largos
+git tag -a v0.1 -m "nombretag"
+git push origin --tags   envia el tag
+git tag -d nombreTag  elimina el tag
+
+git push origin  :refs/tags/nombreTag  borra el tag mencionado 
+git show branch
+git show branch --all
+gitk ---------- interfaz grafica de git
+git rebase branchName-> unifica historia de ramas
+git branch -a  ----> branch locales y remotos
+git branch -r  ----> branch remotos
+git stash --> vuelve al estado anterior antes de un git add y commit
+git stash list ------> muestra el ultimo commit 
+git stash pop --------------> saca os cambios
+git clean --dry-run   -> elimina archivos basura
+git stash branch -----> rama temporal
+git commit --amend -----> reorfaniza el commit dado 
+git reflog -----> log completo
+git reset --hard "commit"
+git reset --soft "commit"
+git grep "palabraabuscar"
+git grep  -n "palabraabuscar" -----> linea do nde se ecuentr
+git grep  -c "palabraabuscar" -----> conteo de palabras
+git shortlog  -sn -------> numero de commits por persona
+git shortlog -sh --all
+git shortlog -sh --all --no--merge
+git config --global alias.stats "shortlog -sh --all --no--merge" 
+git blame -c archivo   
